@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './screens/home/Home';
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
 
 ReactDOM.render(
   <React.StrictMode>
