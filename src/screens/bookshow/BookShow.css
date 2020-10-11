@@ -21,3 +21,15 @@
 .marginTop16 {
     margin-top: 16px;
 }
+
+.dispNone {
+    display: none;
+}
+
+.dispBlock {
+    display: block;
+}
+
+.red {
+    color: red;
+}
