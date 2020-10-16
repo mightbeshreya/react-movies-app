@@ -121,6 +121,7 @@ class Header extends Component {
         xhrLogin.setRequestHeader("Cache-Control", "no-cache");
         xhrLogin.send(dataLogin);
     }
+
     inputUsernameChangeHandler = (e) => {
         this.setState({ username: e.target.value });
     }
@@ -183,17 +184,28 @@ class Header extends Component {
         this.setState({ contact: e.target.value });
     }
 
+    logoutHandler = (e) => {
+
+    }
 
     render() {
         return(
             <div>
                 <header className="app-header">
                     <img src={logo}  className="app-logo" alt="logo"/>
-                    <div className="login-button">
-                        <Button variant="contained" color="default" onClick={this.openModalHandler}>
-                            Login
-                        </Button>
-                    </div>
+                    {!this.state.loggedIn ?
+                        <div className="login-button">
+                            <Button variant="contained" color="default" onClick={this.openModalHandler}>
+                                Login
+                            </Button>
+                        </div>
+                        :
+                        <div className="login-button">
+                            <Button variant="contained" color="default" onClick={this.logoutHandler}>
+                                Logout
+                            </Button>
+                        </div>
+                    }
                     {this.props.showBookShowButton === "true" ?
                         <div className="bookshow-button">
                             <Link to={"/bookshow/" + this.props.id}>
