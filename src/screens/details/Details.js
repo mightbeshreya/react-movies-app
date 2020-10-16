@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import Header from '../../common/header/Header';
 import moviesData from '../../assets/movieData';
 import Typography from '@material-ui/core/Typography';
 import './Details.css';
-import Home from '../home/Home';
+//import Home from '../home/Home';
 import YouTube from 'react-youtube';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { Link } from 'react-router-dom';
 
 class Details extends Component {
     constructor() {
@@ -47,15 +48,15 @@ class Details extends Component {
     componentWillMount() {
         let currentState = this.state;
         currentState.movie = moviesData.filter((mov) => {
-            return mov.id === this.props.movieId
+            return mov.id === this.props.match.params.id
         })[0];
         this.setState({ currentState });
         console.log(this.state);
     }
 
-    backToHomeHandler = () => {
+    /*backToHomeHandler = () => {
         ReactDOM.render(<Home />, document.getElementById('root'));
-    };
+    }; */
 
     artistClickHandler = (url) => {
         window.location = url;
@@ -88,10 +89,10 @@ class Details extends Component {
         }
         return (
             <div className="details">
-                <Header showBookShowButton="true" />
+                <Header id={this.props.match.params.id} showBookShowButton="true" />
                 <div className="back">
-                    <Typography onClick={this.backToHomeHandler}>
-                        &#60; Back to Home
+                    <Typography>
+                        <Link to="/">  &#60; Back to Home</Link>
                     </Typography>
                 </div>
                 <div className="flex-containerDetails">

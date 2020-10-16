@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './screens/home/Home';
+import './common/common.css';
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
+import Controller from './screens/Controller';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home/>
+    <Controller/>
   </React.StrictMode>,
   document.getElementById('root')
 );
